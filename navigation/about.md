@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: opencs
 search_exclude: true
 permalink: /booleansconditionals/
 ---

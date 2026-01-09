@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: opencs
 search_exclude: true
-permalink: /booleansconditionals/
+permalink: /interactiveboolean/
 ---
 
 # Interactive Booleans
