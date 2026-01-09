@@ -1,10 +1,10 @@
 ---
 layout: post
 search_exclude: true
-permalink: /interactiveboolean
+permalink: /booleansconditionals
 ---
 
-# Booleans and Conditionals Lesson
+# Interactive Booleans
 
 ## What Are Booleans?
 
@@ -14,31 +14,31 @@ Think of booleans like light switches - they're either ON (true) or OFF (false).
 
 ### Try It Yourself: Interactive Boolean Explorer
 
-<div style="border: 2px solid #4CAF50; padding: 20px; border-radius: 10px; margin: 20px 0; background-color: #f9f9f9;">
-    <h3>🎮 Boolean Playground</h3>
+<div style="border: 3px solid #4CAF50; padding: 25px; border-radius: 15px; margin: 20px 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); box-shadow: 0 8px 16px rgba(0,0,0,0.2);">
+    <h3 style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">🎮 Boolean Playground</h3>
     
-    <div style="margin: 15px 0;">
-        <label style="font-weight: bold;">Player Health: <span id="healthValue">100</span></label><br>
-        <input type="range" id="healthSlider" min="0" max="100" value="100" style="width: 300px;">
+    <div style="margin: 20px 0; background-color: rgba(255,255,255,0.95); padding: 15px; border-radius: 10px;">
+        <label style="font-weight: bold; color: #d32f2f; font-size: 18px;">Player Health: <span id="healthValue" style="color: #1976d2; font-size: 22px;">100</span></label><br>
+        <input type="range" id="healthSlider" min="0" max="100" value="100" style="width: 100%; height: 8px; cursor: pointer;">
     </div>
     
-    <div style="margin: 15px 0;">
-        <label style="font-weight: bold;">Enemy Health: <span id="enemyHealthValue">50</span></label><br>
-        <input type="range" id="enemyHealthSlider" min="0" max="100" value="50" style="width: 300px;">
+    <div style="margin: 20px 0; background-color: rgba(255,255,255,0.95); padding: 15px; border-radius: 10px;">
+        <label style="font-weight: bold; color: #c62828; font-size: 18px;">Enemy Health: <span id="enemyHealthValue" style="color: #f57c00; font-size: 22px;">50</span></label><br>
+        <input type="range" id="enemyHealthSlider" min="0" max="100" value="50" style="width: 100%; height: 8px; cursor: pointer;">
     </div>
     
-    <div style="margin: 15px 0;">
-        <label><input type="checkbox" id="hasWeapon"> Has Weapon</label><br>
-        <label><input type="checkbox" id="hasShield"> Has Shield</label><br>
-        <label><input type="checkbox" id="hasKey"> Has Key</label>
+    <div style="margin: 20px 0; background-color: rgba(255,255,255,0.95); padding: 15px; border-radius: 10px;">
+        <label style="font-size: 18px; margin-right: 20px;"><input type="checkbox" id="hasWeapon" style="width: 20px; height: 20px; vertical-align: middle;"> <span style="font-weight: bold; color: #0277bd;">⚔️ Has Weapon</span></label><br><br>
+        <label style="font-size: 18px; margin-right: 20px;"><input type="checkbox" id="hasShield" style="width: 20px; height: 20px; vertical-align: middle;"> <span style="font-weight: bold; color: #0277bd;">🛡️ Has Shield</span></label><br><br>
+        <label style="font-size: 18px;"><input type="checkbox" id="hasKey" style="width: 20px; height: 20px; vertical-align: middle;"> <span style="font-weight: bold; color: #0277bd;">🔑 Has Key</span></label>
     </div>
     
-    <button onclick="evaluateBooleans()" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
-        Check Status
+    <button onclick="evaluateBooleans()" style="background: linear-gradient(45deg, #FF6B6B, #FFE66D); color: #1a1a1a; padding: 15px 30px; border: none; border-radius: 10px; cursor: pointer; font-size: 18px; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.3); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        🔍 Check Status
     </button>
     
-    <div id="results" style="margin-top: 20px; padding: 15px; background-color: #fff; border-radius: 5px; min-height: 100px;">
-        <p style="color: #666;">Click "Check Status" to see boolean results!</p>
+    <div id="results" style="margin-top: 20px; padding: 20px; background-color: #ffffff; border-radius: 10px; min-height: 120px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+        <p style="color: #666; font-size: 16px;">Click "Check Status" to see boolean results!</p>
     </div>
 </div>
 
@@ -69,28 +69,28 @@ function evaluateBooleans() {
     let criticalDanger = playerHealth < 20 && !hasShield;
     
     // Build results HTML
-    let html = '<h4>Boolean Results:</h4>';
-    html += '<div style="font-family: monospace; line-height: 1.8;">';
-    html += `<div>playerHealth > 50: <strong style="color: ${isHealthy ? 'green' : 'red'}">${isHealthy}</strong></div>`;
-    html += `<div>playerHealth > enemyHealth: <strong style="color: ${isStrongerThanEnemy ? 'green' : 'red'}">${isStrongerThanEnemy}</strong></div>`;
-    html += `<div>hasWeapon && playerHealth > 30: <strong style="color: ${canFight ? 'green' : 'red'}">${canFight}</strong></div>`;
-    html += `<div>hasShield || playerHealth > 80: <strong style="color: ${isProtected ? 'green' : 'red'}">${isProtected}</strong></div>`;
-    html += `<div>hasKey || playerHealth === 100: <strong style="color: ${canOpenDoor ? 'green' : 'red'}">${canOpenDoor}</strong></div>`;
-    html += `<div>playerHealth < 20 && !hasShield: <strong style="color: ${criticalDanger ? 'red' : 'green'}">${criticalDanger}</strong></div>`;
+    let html = '<h4 style="color: #1976d2; font-size: 20px; margin-bottom: 15px;">📊 Boolean Results:</h4>';
+    html += '<div style="font-family: monospace; line-height: 2.2; font-size: 16px;">';
+    html += `<div style="background-color: ${isHealthy ? '#e8f5e9' : '#ffebee'}; padding: 8px; border-radius: 5px; margin: 5px 0; border-left: 4px solid ${isHealthy ? '#4CAF50' : '#f44336'};">playerHealth > 50: <strong style="color: ${isHealthy ? '#2e7d32' : '#c62828'}; font-size: 18px;">${isHealthy}</strong></div>`;
+    html += `<div style="background-color: ${isStrongerThanEnemy ? '#e8f5e9' : '#ffebee'}; padding: 8px; border-radius: 5px; margin: 5px 0; border-left: 4px solid ${isStrongerThanEnemy ? '#4CAF50' : '#f44336'};">playerHealth > enemyHealth: <strong style="color: ${isStrongerThanEnemy ? '#2e7d32' : '#c62828'}; font-size: 18px;">${isStrongerThanEnemy}</strong></div>`;
+    html += `<div style="background-color: ${canFight ? '#e8f5e9' : '#ffebee'}; padding: 8px; border-radius: 5px; margin: 5px 0; border-left: 4px solid ${canFight ? '#4CAF50' : '#f44336'};">hasWeapon && playerHealth > 30: <strong style="color: ${canFight ? '#2e7d32' : '#c62828'}; font-size: 18px;">${canFight}</strong></div>`;
+    html += `<div style="background-color: ${isProtected ? '#e8f5e9' : '#ffebee'}; padding: 8px; border-radius: 5px; margin: 5px 0; border-left: 4px solid ${isProtected ? '#4CAF50' : '#f44336'};">hasShield || playerHealth > 80: <strong style="color: ${isProtected ? '#2e7d32' : '#c62828'}; font-size: 18px;">${isProtected}</strong></div>`;
+    html += `<div style="background-color: ${canOpenDoor ? '#e8f5e9' : '#ffebee'}; padding: 8px; border-radius: 5px; margin: 5px 0; border-left: 4px solid ${canOpenDoor ? '#4CAF50' : '#f44336'};">hasKey || playerHealth === 100: <strong style="color: ${canOpenDoor ? '#2e7d32' : '#c62828'}; font-size: 18px;">${canOpenDoor}</strong></div>`;
+    html += `<div style="background-color: ${criticalDanger ? '#ffebee' : '#e8f5e9'}; padding: 8px; border-radius: 5px; margin: 5px 0; border-left: 4px solid ${criticalDanger ? '#f44336' : '#4CAF50'};">playerHealth < 20 && !hasShield: <strong style="color: ${criticalDanger ? '#c62828' : '#2e7d32'}; font-size: 18px;">${criticalDanger}</strong></div>`;
     html += '</div>';
     
     // Add game status
-    html += '<h4 style="margin-top: 20px;">Game Status:</h4>';
+    html += '<h4 style="margin-top: 20px; color: #1976d2; font-size: 20px;">🎯 Game Status:</h4>';
     if (playerHealth <= 0) {
-        html += '<p style="color: red; font-weight: bold;">💀 GAME OVER!</p>';
+        html += '<p style="color: #d32f2f; font-weight: bold; font-size: 20px; background-color: #ffcdd2; padding: 15px; border-radius: 8px; border: 3px solid #d32f2f;">💀 GAME OVER!</p>';
     } else if (criticalDanger) {
-        html += '<p style="color: red; font-weight: bold;">⚠️ CRITICAL DANGER! Find a shield!</p>';
+        html += '<p style="color: #e65100; font-weight: bold; font-size: 20px; background-color: #ffe0b2; padding: 15px; border-radius: 8px; border: 3px solid #ff9800;">⚠️ CRITICAL DANGER! Find a shield!</p>';
     } else if (canFight && isStrongerThanEnemy) {
-        html += '<p style="color: green; font-weight: bold;">⚔️ Ready for battle!</p>';
+        html += '<p style="color: #1b5e20; font-weight: bold; font-size: 20px; background-color: #c8e6c9; padding: 15px; border-radius: 8px; border: 3px solid #4CAF50;">⚔️ Ready for battle!</p>';
     } else if (isHealthy) {
-        html += '<p style="color: blue; font-weight: bold;">✓ Status: Healthy</p>';
+        html += '<p style="color: #0277bd; font-weight: bold; font-size: 20px; background-color: #b3e5fc; padding: 15px; border-radius: 8px; border: 3px solid #03a9f4;">✓ Status: Healthy</p>';
     } else {
-        html += '<p style="color: orange; font-weight: bold;">⚠️ Low health - proceed with caution</p>';
+        html += '<p style="color: #f57c00; font-weight: bold; font-size: 20px; background-color: #fff3e0; padding: 15px; border-radius: 8px; border: 3px solid #ff9800;">⚠️ Low health - proceed with caution</p>';
     }
     
     document.getElementById('results').innerHTML = html;
@@ -244,16 +244,16 @@ checkPlayerStatus(100, true, 0);  // "All systems normal"
 
 ## Interactive Challenge: Build Your Own Condition
 
-<div style="border: 2px solid #2196F3; padding: 20px; border-radius: 10px; margin: 20px 0; background-color: #f0f8ff;">
-    <h3>🎯 Custom Condition Builder</h3>
+<div style="border: 3px solid #2196F3; padding: 25px; border-radius: 15px; margin: 20px 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); box-shadow: 0 8px 16px rgba(0,0,0,0.2);">
+    <h3 style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">🎯 Custom Condition Builder</h3>
     
-    <div style="margin: 15px 0;">
-        <label>Number 1: <input type="number" id="num1" value="10" style="padding: 5px;"></label>
+    <div style="margin: 20px 0; background-color: rgba(255,255,255,0.95); padding: 15px; border-radius: 10px;">
+        <label style="font-weight: bold; color: #1976d2; font-size: 18px;">Number 1: <input type="number" id="num1" value="10" style="padding: 10px; font-size: 16px; border: 2px solid #2196F3; border-radius: 5px; width: 100px;"></label>
     </div>
     
-    <div style="margin: 15px 0;">
-        <label>Operator: 
-            <select id="operator" style="padding: 5px;">
+    <div style="margin: 20px 0; background-color: rgba(255,255,255,0.95); padding: 15px; border-radius: 10px;">
+        <label style="font-weight: bold; color: #1976d2; font-size: 18px;">Operator: 
+            <select id="operator" style="padding: 10px; font-size: 16px; border: 2px solid #2196F3; border-radius: 5px; cursor: pointer;">
                 <option value=">">Greater than (>)</option>
                 <option value="<">Less than (<)</option>
                 <option value="===">Equal to (===)</option>
@@ -264,16 +264,16 @@ checkPlayerStatus(100, true, 0);  // "All systems normal"
         </label>
     </div>
     
-    <div style="margin: 15px 0;">
-        <label>Number 2: <input type="number" id="num2" value="5" style="padding: 5px;"></label>
+    <div style="margin: 20px 0; background-color: rgba(255,255,255,0.95); padding: 15px; border-radius: 10px;">
+        <label style="font-weight: bold; color: #1976d2; font-size: 18px;">Number 2: <input type="number" id="num2" value="5" style="padding: 10px; font-size: 16px; border: 2px solid #2196F3; border-radius: 5px; width: 100px;"></label>
     </div>
     
-    <button onclick="testCondition()" style="background-color: #2196F3; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
-        Test Condition
+    <button onclick="testCondition()" style="background: linear-gradient(45deg, #4CAF50, #8BC34A); color: white; padding: 15px 30px; border: none; border-radius: 10px; cursor: pointer; font-size: 18px; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.3); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        ✅ Test Condition
     </button>
     
-    <div id="conditionResult" style="margin-top: 15px; padding: 15px; background-color: #fff; border-radius: 5px;">
-        <p style="color: #666;">Enter values and test your condition!</p>
+    <div id="conditionResult" style="margin-top: 20px; padding: 20px; background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+        <p style="color: #666; font-size: 16px;">Enter values and test your condition!</p>
     </div>
 </div>
 
@@ -314,9 +314,13 @@ function testCondition() {
     }
     
     let html = `
-        <div style="font-family: monospace; font-size: 18px;">
-            <div style="margin-bottom: 10px;">Expression: <strong>${expression}</strong></div>
-            <div>Result: <strong style="color: ${result ? 'green' : 'red'}; font-size: 24px;">${result}</strong></div>
+        <div style="font-family: monospace; font-size: 20px;">
+            <div style="margin-bottom: 15px; padding: 15px; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 8px; border-left: 5px solid #2196F3;">
+                Expression: <strong style="color: #1565c0; font-size: 22px;">${expression}</strong>
+            </div>
+            <div style="padding: 20px; background-color: ${result ? '#c8e6c9' : '#ffcdd2'}; border-radius: 8px; border: 3px solid ${result ? '#4CAF50' : '#f44336'};">
+                Result: <strong style="color: ${result ? '#1b5e20' : '#c62828'}; font-size: 32px;">${result}</strong>
+            </div>
         </div>
     `;
     
