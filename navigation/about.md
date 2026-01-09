@@ -1,11 +1,12 @@
 ---
 layout: post
 search_exclude: true
-permalink: /teachingfundamentals
+permalink: /booleansconditionals
 ---
 
 # Lesson
 
-## Javascript Fundamentals
+## Booleans
 
-### Nested Conditionals
+
+
