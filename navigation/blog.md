@@ -1,7 +1,7 @@
 ---
 layout: post
 search_exclude: true
-permalink: /booleansconditionals
+permalink: /booleansconditionals/
 ---
 
 # Interactive Booleans
