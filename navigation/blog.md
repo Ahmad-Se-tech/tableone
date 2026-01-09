@@ -244,7 +244,7 @@ checkPlayerStatus(100, true, 0);  // "All systems normal"
 
 ## Interactive Challenge: Build Your Own Condition
 
-<div style="border: 3px solid #2196F3; padding: 25px; border-radius: 15px; margin: 20px 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); box-shadow: 0 8px 16px rgba(0,0,0,0.2);">
+<div style="border: 3px solid #2196F3; padding: 25px; border-radius: 15px; margin: 20px 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); box-shadow: 0 8px 16px rgba(233, 233, 233, 0.98)">
     <h3 style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">🎯 Custom Condition Builder</h3>
     
     <div style="margin: 20px 0; background-color: rgba(255,255,255,0.95); padding: 15px; border-radius: 10px;">
