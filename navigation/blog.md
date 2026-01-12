@@ -1,5 +1,5 @@
 ---
-layout: opencs
+layout: page
 search_exclude: true
 permalink: /interactiveboolean/
 ---
