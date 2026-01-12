@@ -273,7 +273,7 @@ checkPlayerStatus(100, true, 0);  // "All systems normal"
     </button>
     
     <div id="conditionResult" style="margin-top: 20px; padding: 20px; background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
-        <p style="color: #666; font-size: 16px;">Enter values and test your condition!</p>
+        <p style="color: #667; font-size: 16px;">Enter values and test your condition!</p>
     </div>
 </div>
 
