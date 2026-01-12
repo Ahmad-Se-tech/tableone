@@ -52,11 +52,6 @@ plugins:
   - jekyll-remote-theme
   - jekyll-include-cache
 
-# Exclude local virtual environment directories from Jekyll watcher
-exclude:
-  - venv
-  - .venv
-
 # Minima-specific settings (applicable to Minima v3 and above only)
 # -----------------------------------------------------------------
 #
