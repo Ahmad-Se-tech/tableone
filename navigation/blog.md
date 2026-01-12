@@ -480,21 +480,3 @@ function runCode() {
         console.log = originalLog;
     }
 }
-
-function clearOutput() {
-    document.getElementById('codeOutput').innerHTML = '<span style="color: #888;">Ready to run code...</span>';
-}
-
-function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-}
-
-// Allow Ctrl+Enter to run code
-document.getElementById('codeInput').addEventListener('keydown', function(e) {
-    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-        runCode();
-    }
-});
-</script>
