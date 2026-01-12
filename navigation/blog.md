@@ -390,3 +390,111 @@ Try building a simple game mechanic using booleans and conditionals, like:
 - A health system that displays warnings at different health levels
 - A door system that requires certain conditions to open
 - A scoring system with different messages for different score ranges
+
+## 💻 Code Playground
+
+Try writing your own boolean code below!
+
+<div style="border: 3px solid #FF5722; padding: 25px; border-radius: 15px; margin: 20px 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); box-shadow: 0 8px 16px rgba(0,0,0,0.2);">
+    <h3 style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">🚀 JavaScript Code Runner</h3>
+    
+    <div style="margin: 20px 0;">
+        <label style="color: white; font-weight: bold; font-size: 18px; display: block; margin-bottom: 10px;">Write your code:</label>
+        <textarea id="codeInput" style="width: 100%; height: 250px; padding: 15px; font-family: 'Courier New', monospace; font-size: 16px; border: 3px solid #FF5722; border-radius: 8px; background-color: #263238; color: #aed581; resize: vertical;" placeholder="// Try this starter code:
+let playerHealth = 75;
+let hasShield = true;
+
+console.log('Health:', playerHealth);
+console.log('Is healthy:', playerHealth > 50);
+console.log('Is protected:', hasShield || playerHealth > 80);
+
+if (playerHealth > 50 && hasShield) {
+    console.log('Ready for adventure!');
+} else {
+    console.log('Need to prepare more...');
+}">// Try this starter code:
+let playerHealth = 75;
+let hasShield = true;
+
+console.log('Health:', playerHealth);
+console.log('Is healthy:', playerHealth > 50);
+console.log('Is protected:', hasShield || playerHealth > 80);
+
+if (playerHealth > 50 && hasShield) {
+    console.log('Ready for adventure!');
+} else {
+    console.log('Need to prepare more...');
+}</textarea>
+    </div>
+    
+    <button onclick="runCode()" style="background: linear-gradient(45deg, #FF5722, #FF9800); color: white; padding: 15px 30px; border: none; border-radius: 10px; cursor: pointer; font-size: 18px; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.3); transition: transform 0.2s; margin-right: 10px;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        ▶️ Run Code
+    </button>
+    
+    <button onclick="clearOutput()" style="background: linear-gradient(45deg, #9E9E9E, #757575); color: white; padding: 15px 30px; border: none; border-radius: 10px; cursor: pointer; font-size: 18px; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.3); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        🗑️ Clear Output
+    </button>
+    
+    <div style="margin-top: 20px;">
+        <label style="color: white; font-weight: bold; font-size: 18px; display: block; margin-bottom: 10px;">📺 Output:</label>
+        <div id="codeOutput" style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 8px; min-height: 150px; font-family: 'Courier New', monospace; font-size: 15px; white-space: pre-wrap; border: 3px solid #FF5722; box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);">
+            <span style="color: #888;">Ready to run code...</span>
+        </div>
+    </div>
+</div>
+
+<script>
+function runCode() {
+    const code = document.getElementById('codeInput').value;
+    const outputDiv = document.getElementById('codeOutput');
+    
+    // Clear previous output
+    outputDiv.innerHTML = '';
+    
+    // Capture console.log
+    const logs = [];
+    const originalLog = console.log;
+    console.log = function(...args) {
+        logs.push(args.map(arg => 
+            typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
+        ).join(' '));
+        originalLog.apply(console, args);
+    };
+    
+    try {
+        // Execute the code
+        eval(code);
+        
+        // Display output
+        if (logs.length > 0) {
+            outputDiv.innerHTML = logs.map(log => 
+                `<div style="margin: 5px 0; padding: 8px; background-color: #2d2d2d; border-left: 3px solid #4CAF50; border-radius: 3px;">${escapeHtml(log)}</div>`
+            ).join('');
+        } else {
+            outputDiv.innerHTML = '<span style="color: #4CAF50;">✓ Code executed successfully (no output)</span>';
+        }
+    } catch (error) {
+        outputDiv.innerHTML = `<div style="color: #f44336; padding: 10px; background-color: #3d1f1f; border-left: 4px solid #f44336; border-radius: 3px;"><strong>❌ Error:</strong><br>${escapeHtml(error.message)}</div>`;
+    } finally {
+        // Restore console.log
+        console.log = originalLog;
+    }
+}
+
+function clearOutput() {
+    document.getElementById('codeOutput').innerHTML = '<span style="color: #888;">Ready to run code...</span>';
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// Allow Ctrl+Enter to run code
+document.getElementById('codeInput').addEventListener('keydown', function(e) {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+        runCode();
+    }
+});
+</script>
