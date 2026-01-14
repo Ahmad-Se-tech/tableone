@@ -88,7 +88,7 @@ function evaluateBooleans() {
     } else if (canFight && isStrongerThanEnemy) {
         html += '<p style="color: #1b5e20; font-weight: bold; font-size: 20px; background-color: #c8e6c9; padding: 15px; border-radius: 8px; border: 3px solid #4CAF50;">⚔️ Ready for battle!</p>';
     } else if (isHealthy) {
-        html += '<p style="color: #0277bd; font-weight: bold; font-size: 20px; background-color: #b3e5fc; padding: 15px; border-radius: 8px; border: 3px solid #03a9f4;">✓ Status: Healthy</p>';
+        html += '<p style="color: #0277bd; font-weight: bold; font-size: 20px; background-color: #39baf5ff; padding: 15px; border-radius: 8px; border: 3px solid #03a9f4;">✓ Status: Healthy</p>';
     } else {
         html += '<p style="color: #f57c00; font-weight: bold; font-size: 20px; background-color: #fff3e0; padding: 15px; border-radius: 8px; border: 3px solid #ff9800;">⚠️ Low health - proceed with caution</p>';
     }
