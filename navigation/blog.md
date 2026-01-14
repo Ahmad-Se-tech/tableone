@@ -19,12 +19,12 @@ Think of booleans like light switches - they're either ON (true) or OFF (false).
     
     <div style="margin: 20px 0; background-color: rgba(255,255,255,0.95); padding: 15px; border-radius: 10px;">
         <label style="font-weight: bold; color: #d32f2f; font-size: 18px;">Player Health: <span id="healthValue" style="color: #1976d2; font-size: 22px;">100</span></label><br>
-        <input type="range" id="healthSlider" min="0" max="100" value="100" style="width: 100%; height: 8px; cursor: pointer;">
+        <input type="range" id="healthSlider" min="0" max="100" value="100" style="width: 90%; height: 8px; cursor: pointer;">
     </div>
     
     <div style="margin: 20px 0; background-color: rgba(255,255,255,0.95); padding: 15px; border-radius: 10px;">
         <label style="font-weight: bold; color: #c62828; font-size: 18px;">Enemy Health: <span id="enemyHealthValue" style="color: #f57c00; font-size: 22px;">50</span></label><br>
-        <input type="range" id="enemyHealthSlider" min="0" max="100" value="50" style="width: 100%; height: 8px; cursor: pointer;">
+        <input type="range" id="enemyHealthSlider" min="0" max="100" value="50" style="width: 90%; height: 8px; cursor: pointer;">
     </div>
     
     <div style="margin: 20px 0; background-color: rgba(255,255,255,0.95); padding: 15px; border-radius: 10px;">
